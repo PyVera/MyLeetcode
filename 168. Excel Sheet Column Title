@@ -1,0 +1,12 @@
+class Solution:
+    def convertToTitle(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        result = ''
+        temp = n
+        while temp:
+            result += chr((temp-1) % 26 + ord('A'))
+            temp = int((temp-1) / 26)  #如果用temp/26,字母Z的输出会报错
+        return result[::-1]
