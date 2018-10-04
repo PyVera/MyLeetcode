@@ -1,0 +1,16 @@
+class Solution:
+    def countPrimes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 3:
+            return 0
+        prime = [1] * n  #维护一个数组，数组中的元素为1或0来表示当前位置的索引是否为素数。
+        prime[0] = prime[1] = 0
+        for i in range(2, int(n**0.5) +1):     
+            if prime[i] == 1:
+                prime[2 * i: n: i] = [0] * len(prime[2 * i: n:i])  #删去i的倍数
+        return sum(prime)
+
+#厄拉多塞筛法
