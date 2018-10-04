@@ -1,0 +1,19 @@
+class Solution:
+    def trailingZeroes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        r = 0
+        while n >= 5:
+            n = n // 5  #n大于25后，n会再被赋值
+            r+=n
+        return r
+
+"""
+*2*5 --> 1
+*10 --> 2
+*12*15 --> 3
+*20 --> 4
+*25 --> 6 (25相当于5*5，其实就是看能被5整除多少次）
+"""
