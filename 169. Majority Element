@@ -1,0 +1,18 @@
+class Solution:
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        Dict = {}
+        for num in nums:
+            if num in Dict:
+                Dict[num] = Dict[num] + 1
+            else:
+                Dict[num] = 1
+        List = []
+        for j in Dict:
+            if Dict[j] > len(nums)/2:
+                List.append(j)
+                break
+        return j
