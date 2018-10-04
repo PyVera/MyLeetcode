@@ -1,3 +1,5 @@
+
+#Solution I
 class Solution:
     def isIsomorphic(self, s, t):
         """
@@ -6,3 +8,25 @@ class Solution:
         :rtype: bool
         """
         return len(set(zip(s,t))) == len(set(s)) == len(set(t))
+        
+#Solution II
+class Solution:
+    def isIsomorphic(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        s_list = []
+        d_s = {}
+        for i in range(len(s)):
+            if s[i] not in d_s:
+                d_s[s[i]] = i
+            s_list.append(d_s[s[i]])
+        t_list = []
+        d_t = {}
+        for i in range(len(t)):
+            if t[i] not in d_t:
+                d_t[t[i]] = i
+            t_list.append(d_t[t[i]])
+        return s_list == t_list
